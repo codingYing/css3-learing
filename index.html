@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>css3</title>
+    <style>
+        pre{
+            width: 500px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+    
+        .box1{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 5px solid #666;
+            padding: 10px; 
+            margin: 0 auto;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #666;
+            column-width: 50px;
+            column-count: 3;
+        }
+        .box3{
+            width: 800px;
+            background: #aaa;
+            display: flex;
+        }
+        .box3 .flex{
+            height:50px;
+        }
+        .flex-one{
+            flex:1;
+            order:1;
+            background: #fff;
+        }
+        .flex-two{
+            flex:1;
+            order:-1;
+            background: #ff0000;
+        }
+        .flex-thr{
+            flex:2;
+            order:2;
+            background: #ffdddd;
+        }
+
+    </style>  
+</head>
+<body>
+    <pre>content=width+padding</pre>
+    <div class="box1"></div>
+
+    <div class="box2">
+        <!-- <div class="column-center">Column center</div>
+        <div class="column-left">Column left</div>
+        <div class="column-right">Column right</div> -->
+    </div>    
+
+    <div class="box3">
+        <div class="flex flex-one">我是第一个弹性盒子</div>
+        <div class="flex flex-two">我是第二个弹性盒子</div>
+        <div class="flex flex-thr">我是第三个弹性盒子</div>
+    </div>
+
+</body>
+</html>
