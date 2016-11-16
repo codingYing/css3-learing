@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 回顾</title>
+	<style>
+		body{
+			font-size: 16px;
+			font-family: 'Microsoft Yahei'
+		}
+		.clearfix,
+		.clearfix:before,
+		.clearfix:after{
+			content: "";
+			clear: both;
+		}
+		img{
+			width: 700px;
+			height: 350px;
+			float: right;
+			display: inline-block;
+		}
+		li{
+			margin-top: 10px;
+		}
+		.selector{
+			float: left;
+		}
+		.border{
+			float: left;
+		}
+		.background{
+			float: left;
+		}
+		.text{
+			float: left;
+		}
+		.new{
+			color: red;
+			font-size: 18px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<h1 style="text-align: center;">css3 回顾！！</h1>
+	<img src="img/selector.jpg">
+	<div class="selector">
+		<h3>选择器：</h3>
+		<ul>
+			<li>
+				基本选择器
+				<ul>
+					<li>*</li>
+					<li>E</li>
+					<li>#id</li>
+					<li>.class</li>
+					<li>selector1, selector2</li>
+				</ul>
+			</li>
+			<li>
+				层次选择器
+				<ul>
+					<li>E   F(后代)</li>
+					<li>E > F(子选择器)</li>
+					<li>E + F(相邻兄弟兄弟选择器)</li>
+					<li class="new">E ~ F(通用兄弟选择器)</li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li>
+						动态伪类选择器（:link;:visited;:active;:hover;:focus）
+					</li>
+					<li class="new">
+						目标伪类选择器(:target)
+					</li>
+					<li class="new">
+						语言伪类选择器(:lang)
+					</li>
+					<li class="new">
+						UI元素状态伪类选择器(:checked; :enabled; :disabled)
+					</li>
+					<li class="new">
+						结构伪类选择器
+						<ul>
+							<li>:first-child</li>
+							<li>:last-cild</li>
+							<li>:root (html)</li>
+							<li>E F:nth-child(n)</li>
+							<li>E F:nth-last-child(n)</li>
+							<li>E:nth-of-type(n)</li>
+							<li>E:nth-last-of-type</li>
+							<li>E:first-of-type</li>
+							<li>E:last-of-type</li>
+							<li>E:only-child</li>
+							<li>E:only-of-type</li>
+							<li>E:empty</li>
+						</ul>
+					</li>
+					<li class="new">
+						否定伪类选择器(E:not(F))
+					</li>
+				</ul>
+			</li>
+			<li class="new">
+				伪元素(::first-letter; ::first-line; ::before; :: after; ::selection)
+			</li>
+			<li>
+				属性选择器(E[sttr]; E(attr=val); )
+			</li>
+		</ul>
+	</div>
+	<div class="border clearfix">
+		<h3>边框：</h3>
+		<ul>
+			<li>
+				border-radius
+				<ul>
+					<li>border-top-left-radius</li>
+					<li>border-top-right-radius</li>
+					<li>border-bottom-left-radius</li>
+					<li>border-bottom-right-radius</li>
+				</ul>
+			</li>
+			<li>
+				box-shadow:h-shadow v-shadow blur spread color inset;(水平 垂直 模糊 阴影尺寸 颜色 内部阴影)
+			</li>
+			<li>
+				border-image
+				<ul>
+					<li>border-image-source</li>
+			        <li>border-image-slice</li>
+			        <li>border-image-width</li>
+			        <li>border-image-outset</li>
+			        <li>border-image-repeat</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="background clearfix">
+		<h3>背景</h3>
+		<ul>
+			<li>background-size</li>
+		    <li>background-origin </li>规定背景图片的定位区域，背景图片可以放置于content-box、padding-box 或 border-box 区域</li>
+		    <li>background-clip: border-box|padding-box|content-box; 规定背景的绘制区域</li>
+		    
+		    <li>CSS3 允许多重背景图片
+		        background-image:url(bg_flower.gif),url(bg_flower_2.gif);</li>
+        </ul>
+	</div>
+	<div class="text clearfix">
+		<h3>文本效果</h3>
+		<ul>
+			<li>text-shadow: h-shadow v-shadow blur color;水平阴影、垂直阴影、模糊距离，以及阴影的颜色</li>
+		    <li>word-wrap 允许您允许文本强制文本进行换行 - 即使这意味着会对单词进行拆分 word-wrap: normal|break-word;</li>
+		    <li>word-break 属性规定自动换行的处理方法 word-break: normal|break-all（允许在单词内换行）|keep-all（只能在半角空格或连字符处换行）;</li>
+		    <li>text-overflow 属性规定当文本溢出包含元素时发生的事情 text-overflow: clip|ellipsis|string;</li>
+		    <li>text-outline 属性规定文本轮廓 text-outline: thickness [blur] color;</li>
+	    	<li>text-wrap 目前主流浏览器都不支持 text-wrap 属性 text-wrap: normal|none|unrestricted（在任意两个字符间换行）|suppress（压缩元素中的换行。浏览器只在行中没有其他有效换行点时进行换行）;</li>
+	    </ul>
+	</div>
+</body>
+</html>
