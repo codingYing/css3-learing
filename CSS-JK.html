@@ -4,7 +4,12 @@
 	<meta charset="UTF-8">
 	<title>css 回顾</title>
 	<style>
+	@font-face{
+		font-family:myFont;
+		src: url("font/dingding.otf");
+	}
 		body{
+			min-width: 100%
 			font-size: 16px;
 			font-family: 'Microsoft Yahei'
 		}
@@ -14,17 +19,21 @@
 			content: "";
 			clear: both;
 		}
-		img{
-			width: 700px;
-			height: 350px;
-			float: right;
-			display: inline-block;
+		h1{
+			font-size: 60px;
+			background: orange url(img/bg.jpg);
+			font-weight: bold;
+			-webkit-background-clip: text;
+      		-webkit-text-fill-color: transparent;
 		}
 		li{
 			margin-top: 10px;
 		}
 		.selector{
+			width: 100%;
 			float: left;
+			background: url('img/selector.jpg') no-repeat 100% 0;
+			background-size: 700px 500px;
 		}
 		.border{
 			float: left;
@@ -35,6 +44,13 @@
 		.text{
 			float: left;
 		}
+		.my-font{
+			font-size: 30px;
+			font-family: myFont;
+		}
+		.flex-box{
+			background: url(img/Flexbox.png) no-repeat 100% 0;
+		}
 		.new{
 			color: red;
 			font-size: 18px;
@@ -44,7 +60,6 @@
 </head>
 <body>
 <h1 style="text-align: center;">css3 回顾！！</h1>
-	<img src="img/selector.jpg">
 	<div class="selector">
 		<h3>选择器：</h3>
 		<ul>
@@ -127,7 +142,7 @@
 				box-shadow:h-shadow v-shadow blur spread color inset;(水平 垂直 模糊 阴影尺寸 颜色 内部阴影)
 			</li>
 			<li>
-				border-image
+				border-image（不支持IE）
 				<ul>
 					<li>border-image-source</li>
 			        <li>border-image-slice</li>
@@ -142,8 +157,8 @@
 		<h3>背景</h3>
 		<ul>
 			<li>background-size</li>
-		    <li>background-origin </li>规定背景图片的定位区域，背景图片可以放置于content-box、padding-box 或 border-box 区域</li>
-		    <li>background-clip: border-box|padding-box|content-box; 规定背景的绘制区域</li>
+		    <li>background-origin 规定背景图片的定位区域，背景图片可以放置于content-box、padding-box 或 border-box 区域</li>
+		    <li>background-clip: border-box|padding-box|content-box; text 规定背景的绘制区域</li>
 		    
 		    <li>CSS3 允许多重背景图片
 		        background-image:url(bg_flower.gif),url(bg_flower_2.gif);</li>
@@ -159,6 +174,67 @@
 		    <li>text-outline 属性规定文本轮廓 text-outline: thickness [blur] color;</li>
 	    	<li>text-wrap 目前主流浏览器都不支持 text-wrap 属性 text-wrap: normal|none|unrestricted（在任意两个字符间换行）|suppress（压缩元素中的换行。浏览器只在行中没有其他有效换行点时进行换行）;</li>
 	    </ul>
+	</div>
+
+	<div class="clearfix my-font" style="float: left;">
+		<h3>CSS3 字体  @font-face</h3>
+<pre style="border:1px solid #ccc; font-size: 16px;">
+@font-face{
+    	font-family(必须，名字)
+    	src(必须，定义字体文件的url)
+    	font-stretch(定义如何拉伸字体。默认是 "normal")
+    	font-style(normal/italic/oblique)
+    	font-weight
+    	unicode-range(定义字体支持的 UNICODE 字符范围。默认是 "U+0-10FFFF")
+	}
+</pre>
+	</div>
+
+	<div class="flex-box clearfix" style="float: left; width: 100%; height: 300px;">
+		<h3 class="new">伸缩布局盒模型 Flexbox</h3>
+	</div>
+	
+	<div class="clearfix" style="float: left;">
+		<h3>CSS3 多列</h3>
+		<ul>
+			<li>column-count  规定元素应该被分隔的列数</li>
+		    <li>column-gap  规定列之间的间隔</li>
+		    <li>column-rule  设置列之间的宽度、样式和颜色规则
+		    	<ul>
+		    		<li>column-rule-width: thin|medium|thick|length;属性规定列之间的宽度规则</li>
+		        	<li>column-rule-style: none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset;
+		        没有|隐藏|点|虚线|实线|双线</li>
+		        	<li>column-rule-color</li>
+		    	</ul>
+		    </li>
+		    <li>column-fill  规定如何填充列。balance|auto;主流浏览器都不支持 column-fill 属性</li>
+		    <li>column-span  规定元素应该横跨的列数 1|all;</li>
+		    <li>column-width  属性规定列的宽度</li>
+		    <li style="color: red;">columns: column-width column-count;简写属性，用于设置列宽和列数</li>
+
+		</ul>
+	</div>
+
+	<div class="color clearfix" style="float: left;">
+		<h3>颜色</h3>
+		<ul>
+			<li>web安全色：</li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="clearfix" style="float:left; margin-bottom: 100px;">
+		<h3 class="new">sublime text ---- Autoprefix Css</h3>
+		<div style="width: 100%; height: 100px; border:1px solid #ccc;">
+			<p>配置：prefrences --> packageSetting --> autoprefix --> setting User
+        {
+           "browsers": ["last 2 versions","Firefox >= 20"]
+        }</p>
+	    <p>设置快捷键： 
+	    [
+	        { "keys": ["ctrl+alt+shift+p"], "command": "autoprefixer" }
+	    ]</p>
+		</div>
 	</div>
 </body>
 </html>
